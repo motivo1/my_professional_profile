@@ -9,11 +9,14 @@
 > „KI-gestützter Odoo-Workflow-Assistent für eCommerce-Automatisierung"
 
 **Kern-Story für IHK-Prüfer:**
-eCommerce-Marken bei €500K–€5M Umsatz verlieren 20+ Stunden/Woche durch
-manuelle Prozesse und 6–8 nicht verbundene Tools. Dein KI-Projekt automatisiert
-diese Workflows mit Odoo ERP + Python-KI-Agenten — messbare Ergebnisse:
-Lagergenauigkeit von 78% auf 99,4%, Auftragsbearbeitung von 4 Stunden auf
-20 Minuten.
+Ein WooCommerce-Unternehmen ohne strukturierte Preislisten oder saubere
+Stammdaten — nur fragmentierte Rohdaten, Excel-Exporte und Webseiten.
+Das KI-Projekt löst zwei Probleme gleichzeitig: (1) Datenchaos bereinigen
+mit Firecrawl (Web-Scraping) + OpenRouter (LLM-Routing zur KI-gestützten
+Normalisierung), (2) bereinigte Daten nahtlos in Odoo überführen und
+operative Workflows vollautomatisieren — messbare Ergebnisse:
+Lagergenauigkeit von 78% auf 99,4%, Auftragsbearbeitung von 4 Stunden
+auf 20 Minuten.
 
 ---
 
@@ -66,33 +69,38 @@ SLIDE 2 — AGENDA
   for each item
 
 SLIDE 3 — AUSGANGSSITUATION & PROBLEMSTELLUNG
-- Title: "Das Problem: eCommerce-Operationen auf Autopilot — aber im falschen Gang"
-- LEFT SIDE (60%): 3 bold problem statements as cards with icons:
+- Title: "Das Problem: Kein sauberes Datenfundament — und trotzdem soll KI helfen"
+- LEFT SIDE (60%): 4 bold problem statements as cards with icons:
   📦 "20+ Stunden/Woche manuelle Datenpflege" — subtext: "Bestellungen, Lager, 
-     CRM: alles in Silos"
-  🔗 "6–8 nicht integrierte Tools" — subtext: "Shopify, Tabellen, 3PL, CRM — 
-     kein gemeinsames Datenbild"
+     CRM: alles in isolierten Silos"
+  🔗 "WooCommerce ohne strukturierte Stammdaten" — subtext: "Keine Preislisten, 
+     keine clean Datasources — nur Rohdaten und Excel-Fragmente"
+  🗂️ "Inkonsistente Produktdaten quer durch das Unternehmen" — subtext: 
+     "Artikelnummern, Preise und Beschreibungen in 4 verschiedenen Formaten"
   ❌ "Lagergenauigkeit unter 80%" — subtext: "Fehlbestellungen, Stockouts, 
      Retouren — direkte Umsatzverluste"
 - RIGHT SIDE (40%): Large purple callout box:
-  "eCommerce-Marken bei €500K–€5M Umsatz verlieren durchschnittlich 
-   €2.400/Monat durch manuelle Prozessfehler."
-  (smaller text below: "Quelle: eigene Implementierungsanalyse, 2025")
-- Bottom: subtle grey divider with "→ Wo KI den Unterschied macht"
+  "Ohne saubere Datenbasis ist jede KI-Integration nur Automatisierung 
+   von Fehlern. Schritt 1: Daten bereinigen. Schritt 2: Prozesse automatisieren."
+  (smaller text below: "Erkenntnisse aus der Implementierungsanalyse, 2025")
+- Bottom: subtle grey divider with "→ Lösung: KI als Daten-Bereiniger UND Prozess-Steuerer"
 
 SLIDE 4 — ZIELSETZUNG
-- Title: "Zielsetzung: Operative Exzellenz durch KI-gesteuerte Automatisierung"
-- 5 goal cards in a clean grid (2-2-1 layout), each with:
+- Title: "Zielsetzung: Erst Datenchaos lösen — dann automatisieren"
+- 6 goal cards in a clean grid (3-3 layout), each with:
   → icon + headline + one-line description
   
+  🧹 KI-gestützte Datenbereinigung
+     "Firecrawl scraped Rohdaten, OpenRouter-LLM normalisiert und strukturiert"
+  
+  🗄️ Saubere Stammdaten in Odoo
+     "Bereinigte Artikel, Preislisten und Lieferantendaten als Fundament"
+  
   🎯 Vollautomatische Auftragsverarbeitung
-     "Von Eingang bis Lagerauftrag ohne manuelle Eingriffe"
+     "Von WooCommerce-Eingang bis Lagerauftrag ohne manuelle Eingriffe"
   
   🤖 KI-Agenten in Odoo-Workflows
      "Python-basierte LLM-Agenten als intelligente Prozesssteuerer"
-  
-  📊 Echtzeit-Datenbild
-     "Eine Quelle der Wahrheit: Lager, CRM, Bestellungen — alles synchron"
   
   🔒 Governance & Compliance
      "Auditierbare Workflows, DSGVO-konforme Datenverarbeitung"
@@ -101,56 +109,75 @@ SLIDE 4 — ZIELSETZUNG
      "Lagergenauigkeit >99%, Bearbeitungszeit <20 Min., ROI in <90 Tagen"
 
 SLIDE 5 — KI-USE-CASE & LÖSUNGSANSATZ
-- Title: "Der KI-Use-Case: Odoo als KI-gestützte Echtzeit-Schaltzentrale"
-- HORIZONTAL PROCESS FLOW (3 stages with arrows between them):
+- Title: "Der KI-Use-Case: Erst Daten heilen — dann Prozesse automatisieren"
+- HORIZONTAL PROCESS FLOW (4 stages with arrows between them, labeled above
+  as two phases: "Phase 1: Datenbereinigung" and "Phase 2: Automatisierung"):
   
-  [STAGE 1 — purple card]
-  "Dateneingang"
-  • Shopify-Orders
-  • Lieferanten-APIs
-  • Kunden-Anfragen (E-Mail/Chat)
+  [STAGE 1 — light grey card, Phase 1]
+  "Rohdaten-Erfassung"
+  • WooCommerce-Exporte (CSV/JSON)
+  • Lieferanten-Webseiten & PDFs
+  • Interne Excel-Fragmente
+  • Fehlende / inkonsistente Preislisten
   
-  → [ARROW with "KI-Analyse"]
+  → [ARROW with "Firecrawl Scraping"]
   
-  [STAGE 2 — darker purple card]  
-  "KI-Verarbeitung"
-  • Python LLM-Agent klassifiziert Eingang
-  • Odoo-Module verarbeiten automatisch
-  • Priorisierung & Routing per KI-Logik
+  [STAGE 2 — purple card, Phase 1]
+  "KI-Datenbereinigung"
+  • Firecrawl extrahiert strukturierte Daten aus Webseiten & Dokumenten
+  • OpenRouter routet zu optimalem LLM (Kosteneffizienz + Qualität)
+  • LLM normalisiert Artikelnummern, Preise, Kategorien
+  • Deduplizierung & Validierung per Prompt Engineering
+  
+  → [ARROW with "Import in Odoo"]
+  
+  [STAGE 3 — darker purple card, Phase 2]
+  "KI-Prozesssteuerung"
+  • Python-Agent überwacht WooCommerce-Orders in Echtzeit
+  • Klassifizierung & Priorisierung per LLM-Logik
+  • Automatisches Routing in Odoo-Module
   
   → [ARROW with "Automatische Ausführung"]
   
-  [STAGE 3 — accent card]
+  [STAGE 4 — accent card, Phase 2]
   "Automatische Ausgabe"
-  • Lagerauftrag erzeugt
-  • Kunde informiert
-  • Bericht in Odoo aktualisiert
+  • Lagerauftrag in Odoo erzeugt
+  • Kunde automatisch informiert
+  • Reports & KPIs in Echtzeit aktualisiert
 
-- Bottom row: 4 technology badges: 
-  [Odoo 17] [Python 3.12] [OpenAI API] [REST/Webhooks]
+- Bottom row: 6 technology badges: 
+  [Odoo 17] [Python 3.12] [OpenRouter] [Firecrawl] [WooCommerce API] [REST/Webhooks]
 
 SLIDE 6 — TECHNISCHE ARCHITEKTUR
-- Title: "Systemarchitektur: Odoo als KI-gestützte Prozessplattform"
-- ARCHITECTURE DIAGRAM (describe as a layered visual):
+- Title: "Systemarchitektur: Vom Datenchaos zur KI-gestützten Prozessplattform"
+- ARCHITECTURE DIAGRAM (describe as a layered visual, 5 layers top to bottom):
   
-  TOP LAYER (grey): "Dateneingabe"
-  [Shopify] [E-Mail] [Lieferanten-API] [Manuell]
-  ↓ (arrows down)
+  TOP LAYER (light grey): "Rohdaten-Quellen (unkontrolliert, heterogen)"
+  [WooCommerce CSV/JSON] [Lieferanten-Webseiten] [Excel-Fragmente] [PDFs]
+  ↓ (arrows down, labeled "Scraping & Extraktion")
   
-  MIDDLE LAYER (purple): "Odoo ERP — Kernplattform"
-  [eCommerce Module] [Inventory] [CRM] [Purchase]
+  BEREINIGUNGSLAYER (amber/gold accent — distinct color to show it's the KEY innovation):
+  "KI-Datenpipeline — Phase 1: Bereinigung"
+  [Firecrawl: Web-Scraping & Dokumentenextraktion]
+  [OpenRouter: LLM-Routing zu Claude / GPT-4o / Mistral je nach Aufgabe]
+  [Prompt Engineering: Normalisierung, Deduplizierung, Validierung]
+  ↓ (arrows down, labeled "Saubere Stammdaten")
+  
+  MIDDLE LAYER (purple): "Odoo ERP — Zentrale Plattform"
+  [eCommerce] [Inventory] [CRM] [Purchase] [Preislisten & Stammdaten]
   ↑ ↓ (bidirectional arrows)
   
-  KI LAYER (accent): "Python KI-Agent"
-  [LLM-Klassifizierung] [Prompt Engineering] [Fallback-Logik]
+  KI LAYER (dark purple): "Python KI-Agent — Phase 2: Prozesssteuerung"
+  [Order-Klassifizierung] [Routing-Logik] [Fallback-Handler] [Echtzeit-Trigger]
   ↓
   
   BOTTOM LAYER (dark): "Output & Governance"
-  [Automatische Reports] [DSGVO-konformes Logging] [Benachrichtigungen]
+  [Automatische Reports] [DSGVO-konformes Logging] [WooCommerce-Sync] [Alerts]
 
-- Right sidebar: small legend with color codes for each layer
-- Bottom note: "Alle Daten verbleiben innerhalb der Odoo-Instanz — kein externer 
-  Datentransfer ohne Kontrolle"
+- Right sidebar: small legend: grey=Chaos, gold=KI-Bereinigung, purple=Odoo-Kern,
+  dark=Output — mit Pfeil "Chaos → Ordnung → Automatisierung"
+- Bottom note: "OpenRouter ermöglicht kostenoptimales LLM-Routing — nicht immer 
+  das teuerste Modell, sondern das richtige für die jeweilige Aufgabe."
 
 SLIDE 7 — ERGEBNISSE & MEHRWERT
 - Title: "Ergebnisse: Messbare Wirkung in 60 Tagen"
@@ -253,33 +280,36 @@ Kurzbeschreibung des Projekts in 2 Sätzen (was wurde umgesetzt, mit welchen
 Technologien, für welchen Zweck).
 
 **2. Ausgangssituation / Problemstellung**
-Beschreibe die operative Realität von eCommerce-Marken bei €500K–€5M Umsatz:
-- 6–8 nicht integrierte Tools (Shopify, Tabellen, 3PL, separates CRM)
-- 20+ Stunden/Woche manuelle Datenpflege und Prozessabstimmung
-- Lagergenauigkeit unter 80% → Stockouts, Fehlbestellungen, Kundenbeschwerden
-- Fehlende Echtzeittransparenz über Bestellstatus, Lager und Lieferkette
-- Skalierungsblockade: Wachstum scheitert an operativer Kapazität, nicht am Markt
+Beschreibe die operative Realität eines WooCommerce-Unternehmens ohne strukturierte Datenbasis:
+- WooCommerce als Shopsystem mit fragmentierten Exporten (CSV/JSON) — keine clean Datasources
+- Keine strukturierten Preislisten im Unternehmen vorhanden — Preise verteilt über Excel, PDFs und Lieferanten-Webseiten
+- Inkonsistente Stammdaten: Artikelnummern, Kategorien und Beschreibungen in 4+ verschiedenen Formaten
+- 20+ Stunden/Woche manuelle Datenpflege, Abgleich und Prozessabstimmung über isolierte Tools
+- Lagergenauigkeit unter 80% → Stockouts, Fehlbestellungen, direkte Umsatzverluste
+- Skalierungsblockade: KI-Einsatz ohne Datenbasis ist Automatisierung von Fehlern — kein Mehrwert
 
 **3. Zielsetzung**
-- Vollautomatische Auftragsverarbeitung von Eingang bis Lagerauftrag ohne 
-  manuelle Eingriffe
-- KI-Agenten (Python/LLM) als intelligente Prozesssteuerer innerhalb Odoo
-- Echtzeit-Datenbild: Lager, CRM, Bestellungen und Einkauf in einer Plattform
-- Messbare KPIs: Lagergenauigkeit >99%, Bearbeitungszeit <20 Min., ROI <90 Tage
-- Governance-konforme, DSGVO-sichere Implementierung mit auditierbare Logs
-- Befähigung des Teams zur eigenständigen Odoo-Nutzung ohne Consultant-Abhängigkeit
+- KI-gestützte Datenbereinigung als Fundament: Firecrawl + OpenRouter normalisieren 
+  alle Rohdaten zu sauberen, importfähigen Stammdaten
+- Aufbau strukturierter Preislisten und Artikelstammdaten direkt in Odoo
+- Vollautomatische WooCommerce-Auftragsverarbeitung von Eingang bis Lagerauftrag
+- KI-Agenten (Python/LLM via OpenRouter) als intelligente Prozesssteuerer in Odoo
+- Echtzeit-Datenbild: Lager, CRM, Bestellungen und Preise in einer Plattform
+- Governance-konforme, DSGVO-sichere Implementierung — auditierbare Logs für alle KI-Entscheidungen
 
 **4. Lösungsansatz (KI-Use-Case)**
-Umsetzung mit Odoo 17, Python KI-Agenten und REST-API-Integrationen:
-- Odoo als zentrale Plattform: eCommerce, Inventory, CRM, Purchase in einem System
-- Python-basierter LLM-Agent: klassifiziert eingehende Orders, Anfragen und 
-  Lieferantenmeldungen — priorisiert und routet vollautomatisch
-- API-Integrationen: Shopify (Orders), Lieferanten-Webhooks (Lagerbestände), 
-  E-Mail-Eingang (Kundenanfragen), OpenAI API (KI-Klassifizierung)
-- Prompt Engineering für konsistente KI-Ausgaben mit Fallback-Logik bei 
-  unvollständigen Daten
-- Governance & Audit: vollständiges Logging aller KI-Entscheidungen in Odoo, 
-  DSGVO-konformer Datenbetrieb ohne externen Datentransfer
+Zweistufige Umsetzung mit Odoo 17, Firecrawl, OpenRouter und Python-KI-Agenten:
+- Phase 1 — Datenbereinigung: Firecrawl scraped Lieferanten-Webseiten, PDFs und 
+  WooCommerce-Exporte; extrahiert strukturierte Rohdaten automatisch
+- OpenRouter routet Bereinigungsaufgaben kosteneffizient an das jeweils optimale LLM 
+  (z.B. Claude für Kategorisierung, Mistral für Batch-Normalisierung)
+- Prompt Engineering normalisiert Artikelnummern, Preise, Einheiten und Kategorien — 
+  Fallback-Logik für inkonsistente oder fehlende Felder
+- Bereinigte Stammdaten und Preislisten werden automatisch in Odoo importiert
+- Phase 2 — Prozessautomatisierung: Python-Agent überwacht WooCommerce-Orders in 
+  Echtzeit, klassifiziert und routet vollautomatisch in Odoo-Module
+- Governance & Audit: vollständiges Logging aller KI-Entscheidungen, DSGVO-konformer 
+  Datenbetrieb, keine unkontrollierten externen Datentransfers
 
 **5. Nutzen & Mehrwert**
 - Zeitersparnis: operative Wochenstunden von 22+ auf unter 4 Stunden reduziert
@@ -292,16 +322,18 @@ Umsetzung mit Odoo 17, Python KI-Agenten und REST-API-Integrationen:
 - Lerntransfer: Odoo-Team nach 30-tägigem Mentoring vollständig selbstständig
 
 **6. Umsetzung & Ausblick**
-- Erfolgreiche Implementierung der Odoo-Module mit stabilen API-Anbindungen und 
-  KI-Agenten-Integration in unter 60 Tagen
-- Herausforderungen gelöst: API-Rate-Limits, Encoding-Korrekturen, 
-  Fallback-Szenarien für fehlerhafte Lieferantendaten
-- Geplante Erweiterungen: Predictive-Lagerprognosen (30 Tage Vorausschau), 
-  mehrsprachige KI-Kommunikation für internationale Märkte
-- Wissensmultiplikation: Coding Training Platform überträgt Implementierungs-Know-how 
-  an weitere eCommerce-Teams
-- Zukunftsvision: Odoo + KI als Betriebssystem für profitable eCommerce-Marken — 
-  vom manuellen Chaos zum selbststeuernden System
+- Erfolgreiche Implementierung der zweistufigen KI-Pipeline in unter 60 Tagen: 
+  Firecrawl-Datenpipeline + OpenRouter-Normalisierung + Odoo-Prozessautomatisierung
+- Zentrale Herausforderung gelöst: Keine Preislisten und keine sauberen Stammdaten 
+  als Ausgangslage — durch KI-Datenbereinigung wurde das Fundament erst geschaffen
+- Weitere gelöste Hürden: Encoding-Fehler in WooCommerce-Exporten, Rate-Limits bei 
+  Firecrawl, Fallback-Logik für unvollständige Lieferantendaten, OpenRouter-Modellwahl
+- Geplante Erweiterungen: Predictive-Lagerprognosen, automatische Preisanpassung 
+  durch kontinuierliches Firecrawl-Monitoring der Lieferanten-Webseiten
+- Wissensmultiplikation: Coding Training Platform überträgt das Framework 
+  (Firecrawl + OpenRouter + Odoo) an weitere eCommerce-Teams
+- Zukunftsvision: KI-gestützte Datenbereinigung als Standard-Einstieg für jede 
+  Odoo-Implementierung — Clean Data first, Automatisierung second
 
 ---
 
