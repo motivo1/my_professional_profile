@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hendryk Knuth — LinkedIn Profile</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f3f2ef;
+    color: rgba(0,0,0,0.9);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 52px;
+    gap: 8px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  }
+  .nav-logo svg { width: 34px; height: 34px; fill: #0a66c2; }
+  .nav-search {
+    display: flex;
+    align-items: center;
+    background: #eef3f8;
+    border-radius: 4px;
+    padding: 6px 12px;
+    gap: 8px;
+    flex: 0 0 280px;
+    color: rgba(0,0,0,0.6);
+    cursor: text;
+    border: 1px solid transparent;
+    transition: border .2s;
+  }
+  .nav-search:hover { border-color: #0a66c2; }
+  .nav-search input {
+    border: none; background: transparent; outline: none;
+    font-size: 14px; color: rgba(0,0,0,0.9); width: 100%;
+  }
+  .nav-links { display: flex; align-items: center; margin-left: auto; gap: 4px; }
+  .nav-link {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 4px 12px; border-radius: 4px; cursor: pointer;
+    color: rgba(0,0,0,0.6); font-size: 12px; gap: 2px;
+    transition: color .2s, background .2s; text-decoration: none;
+    border: none; background: none;
+  }
+  .nav-link:hover { color: rgba(0,0,0,0.9); background: rgba(0,0,0,0.05); }
+  .nav-link.active { color: rgba(0,0,0,0.9); border-bottom: 2px solid rgba(0,0,0,0.9); border-radius: 0; }
+  .nav-link svg { width: 24px; height: 24px; }
+  .nav-divider { width: 1px; height: 32px; background: rgba(0,0,0,0.15); margin: 0 4px; }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 1128px; margin: 0 auto; padding: 24px 16px; display: grid; grid-template-columns: 1fr 360px; gap: 24px; }
+  @media (max-width: 820px) { .page { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+  /* ── CARD ── */
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.15);
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  /* ── PROFILE CARD ── */
+  .profile-banner {
+    height: 160px;
+    background: linear-gradient(135deg, #714B67 0%, #4a3047 60%, #2d1b33 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .profile-banner::before {
+    content: "Stop Running eCommerce on Spreadsheets.";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255,255,255,0.9);
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.3px;
+    width: 80%;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .profile-banner::after {
+    content: "Odoo + AI · €500K–€10M eCommerce";
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .profile-info { padding: 0 24px 20px; position: relative; }
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    background: linear-gradient(135deg, #714B67, #0a66c2);
+    position: absolute;
+    top: -60px;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .profile-actions { display: flex; justify-content: flex-end; padding: 12px 0 16px; gap: 8px; flex-wrap: wrap; }
+  .btn {
+    padding: 6px 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .btn-primary { background: #0a66c2; color: #fff; }
+  .btn-primary:hover { background: #004182; }
+  .btn-outline { background: transparent; color: #0a66c2; border: 1.5px solid #0a66c2; }
+  .btn-outline:hover { background: #eef3f8; }
+  .btn-ghost { background: transparent; color: rgba(0,0,0,0.6); border: 1.5px solid rgba(0,0,0,0.6); }
+  .btn-ghost:hover { background: rgba(0,0,0,0.05); color: rgba(0,0,0,0.9); border-color: rgba(0,0,0,0.9); }
+  .profile-name { font-size: 24px; font-weight: 600; margin-top: 68px; }
+  .profile-headline { color: rgba(0,0,0,0.9); margin: 4px 0; font-size: 15px; line-height: 1.4; }
+  .profile-location { color: rgba(0,0,0,0.6); font-size: 14px; margin-top: 4px; }
+  .profile-connections { color: #0a66c2; font-size: 14px; font-weight: 600; margin-top: 4px; cursor: pointer; }
+  .profile-connections:hover { text-decoration: underline; }
+
+  /* ── ABOUT ── */
+  .section-title {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 20px 24px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .section-body { padding: 0 24px 20px; }
+  .about-text {
+    color: rgba(0,0,0,0.9);
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+  .about-text.collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .show-more {
+    color: rgba(0,0,0,0.6);
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    display: inline-block;
+    font-size: 14px;
+  }
+  .show-more:hover { text-decoration: underline; color: rgba(0,0,0,0.9); }
+
+  /* ── FEATURED ── */
+  .featured-scroll { display: flex; gap: 12px; padding: 0 24px 20px; overflow-x: auto; scrollbar-width: none; }
+  .featured-scroll::-webkit-scrollbar { display: none; }
+  .featured-card {
+    flex: 0 0 260px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow .2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .featured-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .featured-thumb {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    padding: 16px;
+    color: #fff;
+    line-height: 1.4;
+  }
+  .featured-thumb.purple { background: linear-gradient(135deg, #714B67, #4a3047); }
+  .featured-thumb.blue   { background: linear-gradient(135deg, #0a66c2, #004182); }
+  .featured-thumb.dark   { background: linear-gradient(135deg, #1A1A2E, #16213e); }
+  .featured-meta { padding: 12px; }
+  .featured-meta strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
+  .featured-meta span { color: rgba(0,0,0,0.6); font-size: 13px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* ── ACTIVITY ── */
+  .activity-posts { padding: 0 24px 16px; }
+  .post-card {
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: background .2s;
+    margin-bottom: 8px;
+  }
+  .post-card:hover { background: rgba(0,0,0,0.02); }
+  .post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .post-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #714B67, #0a66c2); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .post-author strong { display: block; font-size: 14px; font-weight: 600; }
+  .post-author span { color: rgba(0,0,0,0.6); font-size: 12px; }
+  .post-text { font-size: 14px; line-height: 1.6; color: rgba(0,0,0,0.9); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .post-reactions { display: flex; align-items: center; gap: 4px; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.08); color: rgba(0,0,0,0.6); font-size: 13px; }
+
+  /* ── EXPERIENCE ── */
+  .exp-item { display: flex; gap: 16px; padding: 16px 24px; border-top: 1px solid rgba(0,0,0,0.08); }
+  .exp-item:first-child { border-top: none; }
+  .exp-logo {
+    width: 48px; height: 48px; border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; color: #fff;
+    flex-shrink: 0; overflow: hidden;
+  }
+  .exp-logo.odoo { background: #714B67; }
+  .exp-logo.edu { background: #0a66c2; }
+  .exp-content { flex: 1; }
+  .exp-title { font-size: 15px; font-weight: 600; }
+  .exp-company { font-size: 14px; color: rgba(0,0,0,0.9); margin: 2px 0; }
+  .exp-date { font-size: 13px; color: rgba(0,0,0,0.6); }
+  .exp-desc { font-size: 14px; color: rgba(0,0,0,0.9); margin-top: 8px; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .exp-desc.open { -webkit-line-clamp: unset; overflow: visible; }
+  .expand-btn { color: rgba(0,0,0,0.6); font-weight: 600; cursor: pointer; font-size: 13px; margin-top: 4px; display: inline-block; }
+  .expand-btn:hover { text-decoration: underline; }
+
+  /* ── SKILLS ── */
+  .skills-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 24px 20px; }
+  .skill-tag {
+    background: #eef3f8;
+    color: #0a66c2;
+    padding: 6px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid #c0d8f0;
+    transition: all .2s;
+  }
+  .skill-tag:hover { background: #0a66c2; color: #fff; border-color: #0a66c2; }
+
+  /* ── SIDEBAR ── */
+  .sidebar { display: flex; flex-direction: column; gap: 8px; }
+  .sidebar-card { padding: 16px; }
+  .sidebar-title { font-weight: 600; margin-bottom: 12px; font-size: 15px; }
+  .sidebar-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+  .sidebar-icon { font-size: 20px; flex-shrink: 0; width: 24px; text-align: center; }
+  .sidebar-item-text strong { display: block; font-size: 13px; font-weight: 600; }
+  .sidebar-item-text span { color: rgba(0,0,0,0.6); font-size: 12px; }
+
+  .cta-box {
+    background: linear-gradient(135deg, #714B67 0%, #4a3047 100%);
+    border-radius: 8px;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    margin: 0 24px 20px;
+  }
+  .cta-box p { font-size: 14px; opacity: 0.9; margin-bottom: 12px; line-height: 1.5; }
+  .cta-box .btn { background: #fff; color: #714B67; font-weight: 700; }
+  .cta-box .btn:hover { background: #f0f0f0; }
+
+  .edit-icon { width: 20px; height: 20px; fill: rgba(0,0,0,0.6); cursor: pointer; }
+  .edit-icon:hover { fill: rgba(0,0,0,0.9); }
+
+  .badge { background: #dce6f1; color: #0a66c2; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .divider { height: 1px; background: rgba(0,0,0,0.08); margin: 0 24px; }
+
+  /* ── TOOLTIP ── */
+  [data-tip] { position: relative; }
+  [data-tip]::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s;
+    z-index: 200;
+  }
+  [data-tip]:hover::after { opacity: 1; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 500;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity .25s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    max-width: 480px;
+    width: 90%;
+    transform: scale(0.95);
+    transition: transform .25s;
+    position: relative;
+  }
+  .modal-overlay.open .modal { transform: scale(1); }
+  .modal h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+  .modal p { color: rgba(0,0,0,0.7); line-height: 1.6; margin-bottom: 16px; }
+  .modal-close {
+    position: absolute; top: 16px; right: 16px;
+    background: none; border: none; font-size: 22px;
+    cursor: pointer; color: rgba(0,0,0,0.5); line-height: 1;
+  }
+  .modal-close:hover { color: rgba(0,0,0,0.9); }
+  .modal input, .modal textarea {
+    width: 100%; border: 1px solid rgba(0,0,0,0.2); border-radius: 4px;
+    padding: 10px 12px; font-size: 14px; margin-bottom: 12px;
+    font-family: inherit; outline: none; transition: border .2s;
+  }
+  .modal input:focus, .modal textarea:focus { border-color: #0a66c2; }
+  .modal textarea { resize: vertical; min-height: 80px; }
+
+  /* ── NOTIFICATION TOAST ── */
+  .toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
+    background: #333; color: #fff; padding: 12px 20px; border-radius: 6px;
+    font-size: 14px; z-index: 1000; transition: transform .3s; white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  </div>
+  <div class="nav-search">
+    <svg width="16" height="16" fill="rgba(0,0,0,0.6)" viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" stroke="rgba(0,0,0,0.6)" stroke-width="2" fill="none"/></svg>
+    <input type="text" placeholder="Search" />
+  </div>
+  <div class="nav-links">
+    <a class="nav-link" href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 9l-11-7L1 9v1h2v11h7v-7h4v7h7V10h2V9zM12 4.5L21 10v10h-5v-7H8v7H3V10l9-5.5z"/></svg>
+      Home
+    </a>
+    <a class="nav-link" href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 4H8C6.9 4 6 4.9 6 6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H8V6h8v12zm-2-2H10v-2h4v2zm0-4H10v-2h4v2zm0-4H10V6h4v2z"/></svg>
+      My Network
+    </a>
+    <a class="nav-link" href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 5H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 12H4V7h16v10zm-8-3c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3 1.3 3 3 3z"/></svg>
+      Jobs
+    </a>
+    <a class="nav-link" href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+      Messaging
+    </a>
+    <a class="nav-link" href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Notifications
+    </a>
+    <div class="nav-divider"></div>
+    <a class="nav-link active" href="#">
+      <div class="post-avatar" style="width:24px;height:24px;font-size:10px;border-radius:50%;">HK</div>
+      Me
+    </a>
+  </div>
+</nav>
+
+<!-- PAGE -->
+<div class="page">
+  <main>
+
+    <!-- PROFILE CARD -->
+    <div class="card" style="margin-bottom:8px;">
+      <div class="profile-banner"></div>
+      <div class="profile-info">
+        <div class="profile-avatar" onclick="showModal('dm')" data-tip="Click to DM">HK</div>
+        <div class="profile-actions">
+          <button class="btn btn-ghost" onclick="showModal('more')">More ▾</button>
+          <button class="btn btn-outline" onclick="showModal('dm')">Message</button>
+          <button class="btn btn-primary" onclick="handleFollow(this)">Follow</button>
+        </div>
+        <div class="profile-name">Hendryk Knuth</div>
+        <div class="profile-headline">Helping eCommerce Brands Cut Operational Chaos 60% with Odoo + AI | Certified Odoo Mentor | ERP &amp; AI Integration for €500K–€10M Stores</div>
+        <div class="profile-location">Germany · <span class="profile-connections" onclick="showModal('connections')">347 followers</span></div>
+        <div style="margin-top:8px; color:rgba(0,0,0,0.6); font-size:13px;">
+          <span style="cursor:pointer; color:#0a66c2; font-weight:600;" onclick="showToast('Opening audit checklist...')">Open to: Odoo implementation · AI consulting · Mentoring</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="card">
+      <div class="section-title">
+        About
+        <svg class="edit-icon" viewBox="0 0 24 24" onclick="showModal('edit')"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+      </div>
+      <div class="section-body">
+        <div class="about-text collapsed" id="aboutText">Most eCommerce brands at €500K–€5M are running 6–8 tools that don't talk to each other — losing 20+ hours a week to manual work they've accepted as "just how it is."
+
+Here's what that looks like in practice:
+
+Inventory mismatches between Shopify and the warehouse. Order errors your team catches manually — when they're lucky. A CRM that has nothing to do with your eCommerce platform. Reports that are already outdated by the time you open them. A team spending Friday afternoon reconciling data instead of growing the business.
+
+I spent years inside Odoo implementations watching eCommerce brands hit the exact same wall: growth stalls not because the product isn't good — but because the operational backend can't keep up.
+
+So I became the person who fixes it.
+
+I mentor eCommerce founders and ops teams on Odoo ERP — from initial implementation to AI-powered automation. My focus: Sales, eCommerce, CRM, Inventory, and Purchasing — integrated into a single system that runs itself as much as possible.
+
+What I've delivered:
+→ eCommerce brands went from 22+ hours/week of manual ops work to under 4 hours
+→ Inventory accuracy from 78% to 99.4% after Odoo inventory implementation
+→ Order processing cut from 4 hours/day to under 20 minutes with Odoo automation
+→ Ops teams fully self-sufficient on Odoo in 30 days
+
+DM me "Odoo" and I'll send you my free 15-Point eCommerce Operations Audit — no email gate, no sales call required.</div>
+        <span class="show-more" id="aboutToggle" onclick="toggleAbout()">…see more</span>
+      </div>
+    </div>
+
+    <!-- FEATURED -->
+    <div class="card">
+      <div class="section-title">Featured</div>
+      <div class="featured-scroll">
+
+        <a class="featured-card" onclick="showModal('audit')" href="#">
+          <div class="featured-thumb purple">15-Point Odoo eCommerce Operations Audit</div>
+          <div class="featured-meta">
+            <strong>The 15-Point Odoo eCommerce Operations Audit</strong>
+            <span>Free checklist — find where your backend is leaking revenue. No email gate.</span>
+          </div>
+        </a>
+
+        <a class="featured-card" onclick="showModal('case')" href="#">
+          <div class="featured-thumb blue">€2M Brand · 6 Tools → 1 Odoo System · 22 hrs saved/week</div>
+          <div class="featured-meta">
+            <strong>How a €2M eCommerce Brand Replaced 6 Tools with Odoo + AI</strong>
+            <span>Order processing: 4 hrs → 20 min. Inventory accuracy: 78% → 99.4%.</span>
+          </div>
+        </a>
+
+        <a class="featured-card" onclick="showModal('post')" href="#">
+          <div class="featured-thumb dark">3 Odoo Mistakes eCommerce Brands Make at €1M Revenue</div>
+          <div class="featured-meta">
+            <strong>3 Odoo Mistakes eCommerce Brands Make at €1M Revenue</strong>
+            <span>Thread · 847 reactions · 112 comments · 23 reposts</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ACTIVITY -->
+    <div class="card">
+      <div class="section-title">
+        Activity
+        <span class="badge">347 followers</span>
+      </div>
+      <div class="activity-posts">
+
+        <div class="post-card" onclick="showModal('post1')">
+          <div class="post-header">
+            <div class="post-avatar">HK</div>
+            <div class="post-author">
+              <strong>Hendryk Knuth</strong>
+              <span>Hendryk posted this · 2 days ago</span>
+            </div>
+          </div>
+          <div class="post-text">Most eCommerce founders think their backend problem is a tool problem. It's not. It's a systems problem. You can have Shopify, Klaviyo, a 3PL, a CRM, and a spreadsheet — and still lose 20 hours a week to manual work. Here's the 3-layer Odoo framework I use to fix it in 30 days...</div>
+          <div class="post-reactions">
+            <span>👍❤️💡</span>
+            <span style="margin-left:4px;">134 reactions · 28 comments</span>
+          </div>
+        </div>
+
+        <div class="post-card" onclick="showModal('post2')">
+          <div class="post-header">
+            <div class="post-avatar">HK</div>
+            <div class="post-author">
+              <strong>Hendryk Knuth</strong>
+              <span>Hendryk posted this · 5 days ago</span>
+            </div>
+          </div>
+          <div class="post-text">I just helped a €2M eCommerce brand cut their weekly ops time from 22 hours to under 4. No new hires. No extra budget. Just Odoo, built correctly. The thing that surprised them most: it wasn't the automation that saved the most time. It was the single source of truth...</div>
+          <div class="post-reactions">
+            <span>👍❤️🔥</span>
+            <span style="margin-left:4px;">287 reactions · 41 comments · 18 reposts</span>
+          </div>
+        </div>
+
+      </div>
+      <div style="text-align:center; padding: 0 24px 16px;">
+        <button class="btn btn-outline" onclick="showToast('Loading more posts...')">Show all posts →</button>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="card">
+      <div class="section-title">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-logo odoo">
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="50" fill="#714B67"/><text x="50" y="65" font-size="38" font-weight="900" fill="white" text-anchor="middle" font-family="Arial">O</text></svg>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Odoo Mentor &amp; AI Manager | eCommerce ERP &amp; Automation Expert</div>
+          <div class="exp-company">Independent · Full-time</div>
+          <div class="exp-date">2023 – Present · 3 yrs</div>
+          <div class="exp-desc" id="exp1">I help eCommerce brands stop running their operations on spreadsheets and disconnected SaaS tools — and replace that with Odoo, properly built and AI-enhanced.
+
+Full Odoo implementation and mentoring for eCommerce businesses at €500K–€10M: Sales, eCommerce, CRM, Inventory, Purchasing — integrated and automated using Python customizations and AI agents.
+
+Results: ops teams from 22+ hrs/week manual work → under 4 hrs. Inventory accuracy from 78% → 99.4%. Order processing cut by 92%. One system instead of six.
+
+Currently building a coding training platform teaching Odoo development and AI-powered business automation — so every eCommerce ops team can run their own Odoo without consultant dependency.</div>
+          <span class="expand-btn" onclick="toggleExp('exp1', this)">…see more</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-logo edu">
+          <svg width="28" height="28" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#0a66c2"/><text x="50" y="65" font-size="36" font-weight="900" fill="white" text-anchor="middle" font-family="Arial">CT</text></svg>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Founder — Odoo &amp; AI Coding Education Platform</div>
+          <div class="exp-company">Coding Trainer · Self-employed</div>
+          <div class="exp-date">2025 – Present · 1 yr</div>
+          <div class="exp-desc" id="exp2">Building the structured learning resource I wish existed when I was learning Odoo: a community-driven coding training platform covering Python, Odoo development, and AI integration for eCommerce ops.
+
+Free fundamentals. Premium certifications. Project-based curriculum. AI tutoring assistant (Hermes Agent) for 24/7 support.
+
+Tech: Python · Django · FastAPI · React · Odoo · PostgreSQL · LLM agents
+
+What building this taught me: eCommerce brands scale fastest when their ops team can configure and extend Odoo themselves.</div>
+          <span class="expand-btn" onclick="toggleExp('exp2', this)">…see more</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="card">
+      <div class="section-title">Skills</div>
+      <div class="skills-list">
+        <span class="skill-tag" onclick="showToast('47 endorsements')">Odoo ERP</span>
+        <span class="skill-tag" onclick="showToast('31 endorsements')">Python</span>
+        <span class="skill-tag" onclick="showToast('29 endorsements')">eCommerce Automation</span>
+        <span class="skill-tag" onclick="showToast('26 endorsements')">AI Integration</span>
+        <span class="skill-tag" onclick="showToast('24 endorsements')">ERP Implementation</span>
+        <span class="skill-tag" onclick="showToast('22 endorsements')">Odoo Development</span>
+        <span class="skill-tag" onclick="showToast('21 endorsements')">Business Automation</span>
+        <span class="skill-tag" onclick="showToast('19 endorsements')">LLM Integration</span>
+        <span class="skill-tag" onclick="showToast('18 endorsements')">PostgreSQL</span>
+        <span class="skill-tag" onclick="showToast('17 endorsements')">API Development</span>
+        <span class="skill-tag" onclick="showToast('15 endorsements')">Inventory Management</span>
+        <span class="skill-tag" onclick="showToast('14 endorsements')">Django</span>
+        <span class="skill-tag" onclick="showToast('14 endorsements')">FastAPI</span>
+        <span class="skill-tag" onclick="showToast('12 endorsements')">CRM</span>
+        <span class="skill-tag" onclick="showToast('12 endorsements')">React</span>
+        <span class="skill-tag" onclick="showToast('11 endorsements')">Process Optimization</span>
+        <span class="skill-tag" onclick="showToast('10 endorsements')">Technical Mentoring</span>
+        <span class="skill-tag" onclick="showToast('9 endorsements')">AI Agents</span>
+      </div>
+      <div style="padding: 0 24px 16px;">
+        <button class="btn btn-outline" onclick="showToast('Showing all 50 skills...')">Show all 50 skills →</button>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="card">
+      <div class="section-title">Let's Work Together</div>
+      <div class="cta-box">
+        <p>Running eCommerce on spreadsheets and disconnected tools? DM me "Odoo" and I'll send you a free 15-point eCommerce operations audit — no email, no sales call.</p>
+        <button class="btn" onclick="showModal('dm')">DM "Odoo" →</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="card sidebar-card">
+      <div class="sidebar-title">Profile language</div>
+      <div style="color:rgba(0,0,0,0.9); font-size:14px;">English</div>
+    </div>
+
+    <div class="card sidebar-card">
+      <div class="sidebar-title">Public profile &amp; URL</div>
+      <a href="https://www.linkedin.com/in/hendryk-knuth/" style="color:#0a66c2; font-size:14px; word-break:break-all;">linkedin.com/in/hendryk-knuth</a>
+    </div>
+
+    <div class="card sidebar-card">
+      <div class="sidebar-title">People also viewed</div>
+      <div class="sidebar-item" onclick="showToast('Viewing profile...')">
+        <div class="post-avatar" style="flex-shrink:0;">OM</div>
+        <div class="sidebar-item-text">
+          <strong>Odoo Mentor EU</strong>
+          <span>Senior Odoo Functional Consultant</span>
+        </div>
+      </div>
+      <div class="sidebar-item" onclick="showToast('Viewing profile...')">
+        <div class="post-avatar" style="background:linear-gradient(135deg,#0a66c2,#004182);flex-shrink:0;">AE</div>
+        <div class="sidebar-item-text">
+          <strong>Anna E.</strong>
+          <span>eCommerce Director · Shopify Plus</span>
+        </div>
+      </div>
+      <div class="sidebar-item" onclick="showToast('Viewing profile...')">
+        <div class="post-avatar" style="background:linear-gradient(135deg,#00875a,#005c3b);flex-shrink:0;">MR</div>
+        <div class="sidebar-item-text">
+          <strong>Marc R.</strong>
+          <span>Odoo Partner · ERP Consultant</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card sidebar-card">
+      <div class="sidebar-title">Odoo Resources</div>
+      <div class="sidebar-item">
+        <span class="sidebar-icon">📋</span>
+        <div class="sidebar-item-text">
+          <strong onclick="showModal('audit')" style="cursor:pointer;color:#0a66c2;">15-Point eCommerce Audit</strong>
+          <span>Free · No email required</span>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <span class="sidebar-icon">📚</span>
+        <div class="sidebar-item-text">
+          <strong onclick="showToast('Opening course catalog...')" style="cursor:pointer;color:#0a66c2;">Coding Training Platform</strong>
+          <span>Python · Odoo · AI · Free tier available</span>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <span class="sidebar-icon">🤖</span>
+        <div class="sidebar-item-text">
+          <strong onclick="showToast('Opening Hermes agent demo...')" style="cursor:pointer;color:#0a66c2;">Hermes AI Agent</strong>
+          <span>AI-powered Odoo tutoring assistant</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card sidebar-card" style="font-size:12px; color:rgba(0,0,0,0.6);">
+      <div style="display:flex; flex-wrap:wrap; gap:6px;">
+        <a href="#" style="color:rgba(0,0,0,0.6);">About</a>
+        <a href="#" style="color:rgba(0,0,0,0.6);">Accessibility</a>
+        <a href="#" style="color:rgba(0,0,0,0.6);">Help Center</a>
+        <a href="#" style="color:rgba(0,0,0,0.6);">Privacy</a>
+        <a href="#" style="color:rgba(0,0,0,0.6);">Ad Choices</a>
+        <a href="#" style="color:rgba(0,0,0,0.6);">Advertising</a>
+      </div>
+      <div style="margin-top:8px;">LinkedIn Corporation © 2026</div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalBox">
+    <button class="modal-close" onclick="closeModalDirect()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  /* ── ABOUT TOGGLE ── */
+  function toggleAbout() {
+    const el = document.getElementById('aboutText');
+    const btn = document.getElementById('aboutToggle');
+    if (el.classList.contains('collapsed')) {
+      el.classList.remove('collapsed');
+      btn.textContent = 'see less';
+    } else {
+      el.classList.add('collapsed');
+      btn.textContent = '…see more';
+    }
+  }
+
+  /* ── EXP TOGGLE ── */
+  function toggleExp(id, btn) {
+    const el = document.getElementById(id);
+    if (el.classList.contains('open')) {
+      el.classList.remove('open');
+      btn.textContent = '…see more';
+    } else {
+      el.classList.add('open');
+      btn.textContent = 'see less';
+    }
+  }
+
+  /* ── FOLLOW ── */
+  function handleFollow(btn) {
+    if (btn.textContent === 'Follow') {
+      btn.textContent = 'Following ✓';
+      btn.classList.remove('btn-primary');
+      btn.classList.add('btn-ghost');
+      showToast('You are now following Hendryk Knuth');
+    } else {
+      btn.textContent = 'Follow';
+      btn.classList.add('btn-primary');
+      btn.classList.remove('btn-ghost');
+      showToast('Unfollowed');
+    }
+  }
+
+  /* ── TOAST ── */
+  let toastTimer;
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  /* ── MODALS ── */
+  const modals = {
+    dm: {
+      title: 'Send Hendryk a message',
+      html: `<p>DM him one of these trigger words to get instant resources:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+          <span style="background:#eef3f8;color:#0a66c2;padding:6px 14px;border-radius:14px;font-weight:700;cursor:pointer;" onclick="fillDM('Odoo')">Odoo → 15-pt Audit</span>
+          <span style="background:#eef3f8;color:#0a66c2;padding:6px 14px;border-radius:14px;font-weight:700;cursor:pointer;" onclick="fillDM('audit')">audit → Checklist PDF</span>
+          <span style="background:#eef3f8;color:#0a66c2;padding:6px 14px;border-radius:14px;font-weight:700;cursor:pointer;" onclick="fillDM('AI')">AI → Agent overview</span>
+          <span style="background:#eef3f8;color:#0a66c2;padding:6px 14px;border-radius:14px;font-weight:700;cursor:pointer;" onclick="fillDM('training')">training → Course PDF</span>
+        </div>
+        <textarea id="dmText" rows="4" placeholder="Type your message or click a trigger above..."></textarea>
+        <button class="btn btn-primary" style="width:100%" onclick="sendDM()">Send Message</button>`
+    },
+    audit: {
+      title: '15-Point eCommerce Operations Audit',
+      html: `<p>The exact audit Hendryk runs before every Odoo implementation — find where your backend is leaking revenue.</p>
+        <ol style="padding-left:20px;line-height:2;color:rgba(0,0,0,0.8);">
+          <li>How many tools does your ops team use daily?</li>
+          <li>Does inventory sync automatically between your store and warehouse?</li>
+          <li>How long does it take to process a single order end-to-end?</li>
+          <li>Can you pull a P&amp;L report in under 5 minutes?</li>
+          <li>Do your CRM and eCommerce platform share the same customer data?</li>
+          <li>How many manual data-entry steps happen per order?</li>
+          <li>When was your last inventory count — and was it accurate?</li>
+          <li>Does your team have a single dashboard for all KPIs?</li>
+          <li>How long does supplier reordering take from trigger to PO?</li>
+          <li>Is your customer support team working from the same data as ops?</li>
+          <li>Can any team member pull a shipping status in under 30 seconds?</li>
+          <li>How many hours/week does your team spend reconciling data?</li>
+          <li>Do you have automated low-stock alerts?</li>
+          <li>Is your returns process fully documented and partially automated?</li>
+          <li>If you took a week off, would your ops run without you?</li>
+        </ol>
+        <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="showToast('Audit sent to hendryk.knuth@gmail.com — check your inbox!');closeModalDirect()">Request Full Audit →</button>`
+    },
+    case: {
+      title: 'Case Study: €2M Brand → Odoo + AI',
+      html: `<p><strong>The challenge:</strong> A €2M eCommerce brand running Shopify, a 3PL, a separate CRM, and 3 spreadsheets. 22+ hours/week of manual work. Inventory inaccuracies causing stockouts every peak season.</p>
+        <p style="margin-top:12px"><strong>The solution:</strong> Full Odoo implementation — eCommerce, Inventory, CRM, Purchasing, and Sales modules integrated. Python automations for order routing. AI agent for customer inquiry triage.</p>
+        <p style="margin-top:12px"><strong>Results in 60 days:</strong></p>
+        <ul style="padding-left:20px;line-height:2;margin-top:8px;color:rgba(0,0,0,0.8);">
+          <li>Ops time: 22+ hrs/week → under 4 hrs</li>
+          <li>Inventory accuracy: 78% → 99.4%</li>
+          <li>Order processing: 4 hrs/day → 20 minutes</li>
+          <li>6 tools → 1 unified Odoo system</li>
+          <li>Team self-sufficient after 30-day training program</li>
+        </ul>
+        <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="showModal('dm')">Want this for your brand? DM Hendryk →</button>`
+    },
+    post: {
+      title: '3 Odoo Mistakes eCommerce Brands Make at €1M',
+      html: `<p style="line-height:1.8;"><strong>Most eCommerce brands get Odoo wrong in the same 3 ways.</strong><br><br>
+        <strong>Mistake 1:</strong> Implementing Odoo before documenting your existing process. Garbage in, garbage out — Odoo will just automate your broken workflow.<br><br>
+        <strong>Mistake 2:</strong> Going live on all modules at once. Sales + Inventory + CRM + Accounting + eCommerce in week one = chaos. Start with 2 modules, nail them, expand.<br><br>
+        <strong>Mistake 3:</strong> Treating Odoo as a one-time setup instead of a living system. The brands that get the most out of Odoo have someone who keeps building it as the business evolves.<br><br>
+        The good news: all 3 are completely avoidable with a proper implementation sequence.<br><br>
+        DM me "Odoo" and I'll send you the 15-point audit that catches all three before they become expensive problems.</p>
+        <div class="post-reactions" style="margin-top:16px;">
+          <span>👍❤️💡🔥</span>
+          <span style="margin-left:8px;">847 reactions · 112 comments · 23 reposts</span>
+        </div>`
+    },
+    post1: {
+      title: 'The 3-Layer Odoo Framework',
+      html: `<p style="line-height:1.8;">Most eCommerce founders think their backend problem is a tool problem. It's not. It's a systems problem.<br><br>
+        You can have Shopify, Klaviyo, a 3PL, a CRM, and a spreadsheet — and still lose 20 hours a week to manual work.<br><br>
+        <strong>The 3 layers I fix with Odoo:</strong><br><br>
+        <strong>Layer 1 — Data:</strong> One source of truth. No more "which spreadsheet is correct?" Every order, customer, inventory item, and supplier in Odoo.<br><br>
+        <strong>Layer 2 — Flow:</strong> Automated hand-offs. Order confirmed → warehouse notified → tracking sent → CRM updated. Zero manual steps.<br><br>
+        <strong>Layer 3 — Intelligence:</strong> AI agents that catch what humans miss. Low-stock alerts before stockouts. Customer inquiry routing before response time SLAs break. Supplier reorder triggers before you're out.<br><br>
+        Most brands only fix Layer 1. That's why they still have manual work in weeks 5, 6, 7...<br><br>
+        The brands that get their time back fix all three.</p>`
+    },
+    post2: {
+      title: 'Case Win: 22 hrs → 4 hrs/week',
+      html: `<p style="line-height:1.8;">I just helped a €2M eCommerce brand cut their weekly ops time from 22 hours to under 4.<br><br>
+        No new hires. No extra budget. Just Odoo, built correctly.<br><br>
+        The thing that surprised them most: it wasn't the automation that saved the most time. It was the single source of truth.<br><br>
+        When your inventory, orders, CRM, and supplier data all live in one place — the 4-hour daily reconciliation meeting disappears. The "which spreadsheet is right?" Slack threads stop. The founder stops being the human API between systems.<br><br>
+        That's the first 10 hours saved, right there. Before we even touched the automations.<br><br>
+        The automations got the next 8.<br><br>
+        30 days. 18 hours of ops time handed back to the team every single week.</p>`
+    },
+    connections: {
+      title: 'Your network',
+      html: `<p>Hendryk has <strong>347 followers</strong> and is connected to decision-makers across the Odoo and eCommerce ecosystem.</p>
+        <p style="margin-top:12px">Notable connections include Odoo Partners, eCommerce Directors, and DTC brand founders across Germany, Netherlands, and the UK.</p>
+        <button class="btn btn-primary" style="margin-top:16px;width:100%" onclick="handleFollow(document.querySelector('.btn-primary'));closeModalDirect()">Follow Hendryk</button>`
+    },
+    edit: {
+      title: 'Edit About section',
+      html: `<p>In the live LinkedIn editor, you would edit your About section here. Below is the optimized copy — ready to paste.</p>
+        <textarea rows="10" style="font-size:12px;">Most eCommerce brands at €500K–€5M are running 6–8 tools that don't talk to each other — losing 20+ hours a week to manual work they've accepted as "just how it is."
+
+Inventory mismatches. Order errors. A CRM disconnected from your eCommerce platform. Reports that are outdated before you open them.
+
+I fix that with Odoo ERP — properly implemented, Python-customized, and AI-enhanced.
+
+Results: ops teams from 22+ hrs/week → under 4 hrs. Inventory accuracy: 78% → 99.4%. Order processing cut by 92%.
+
+DM me "Odoo" for a free 15-Point eCommerce Operations Audit — no email gate.</textarea>
+        <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="showToast('Copied! Paste into LinkedIn About section.');closeModalDirect()">Copy &amp; Close</button>`
+    },
+    more: {
+      title: 'More options',
+      html: `<ul style="list-style:none;line-height:2.5">
+        <li style="cursor:pointer;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.08)" onclick="showToast('Copying profile URL...')">📋 Copy profile URL</li>
+        <li style="cursor:pointer;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.08)" onclick="showToast('Saving profile...')">🔖 Save to PDF</li>
+        <li style="cursor:pointer;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.08)" onclick="showModal('dm')">✉️ Send a message</li>
+        <li style="cursor:pointer;padding:4px 0;" onclick="showToast('Reporting...')">🚩 Report / block</li>
+      </ul>`
+    }
+  };
+
+  function showModal(key) {
+    const data = modals[key];
+    if (!data) return;
+    document.getElementById('modalContent').innerHTML = `<h3>${data.title}</h3>${data.html}`;
+    document.getElementById('modalOverlay').classList.add('open');
+  }
+
+  function closeModal(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+  }
+
+  function closeModalDirect() {
+    document.getElementById('modalOverlay').classList.remove('open');
+  }
+
+  function fillDM(word) {
+    document.getElementById('dmText').value = word;
+    document.getElementById('dmText').focus();
+  }
+
+  function sendDM() {
+    const msg = document.getElementById('dmText').value.trim();
+    if (!msg) { showToast('Write something first!'); return; }
+    closeModalDirect();
+    if (msg.toLowerCase() === 'odoo' || msg.toLowerCase() === 'audit') {
+      setTimeout(() => showModal('audit'), 300);
+    } else if (msg.toLowerCase() === 'ai') {
+      showToast('Hendryk will send you the AI agent overview!');
+    } else if (msg.toLowerCase() === 'training') {
+      showToast('Hendryk will send you the course curriculum PDF!');
+    } else {
+      showToast('Message sent to Hendryk Knuth!');
+    }
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+</script>
+</body>
+</html>
